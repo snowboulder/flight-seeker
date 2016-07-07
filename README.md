@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Flight-Seeker app is here!
 
-Things you may want to cover:
+- Helps you find flights based on your needs (Destination and date)
 
-* Ruby version
+- Choose the best option available!
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Book and Pay easily!
