@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713000736) do
+ActiveRecord::Schema.define(version: 20160713050116) do
 
   create_table "airports", force: :cascade do |t|
     t.datetime "created_at", null: false
