@@ -11,3 +11,15 @@
   name  = Faker::Address.city
   Airport.create!(name:  name)
 end
+
+# Auto populate Flight model using Faker gem
+99.times do |f|
+  from_airport_id = "#{f+1}"
+  to_airport_id = "#{f+2}"
+  duration = "#{(f+1)*10000}"
+  date = Faker::Date.forward(f+11)
+  Flight.create!(from_airport_id: from_airport_id,
+                 to_airport_id: to_airport_id,
+                 duration: duration,
+                 date: date)
+end
