@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# rake db:setup
+
 # Auto populate Airport model with city names using Faker gem
 99.times do |n|
   name  = Faker::Address.city
@@ -18,8 +20,10 @@ end
   to_airport_id = "#{f+2}"
   duration = "#{(f+1)*10000}"
   date = Faker::Date.forward(f+11)
+  capacity = "#{f+150}"
   Flight.create!(from_airport_id: from_airport_id,
                  to_airport_id: to_airport_id,
                  duration: duration,
-                 date: date)
+                 date: date,
+                 capacity: capacity)
 end
