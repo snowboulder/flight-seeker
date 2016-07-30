@@ -7,20 +7,21 @@
     <%= form_tag(root_path, method: :get) do %>
 
       <% options = options_from_collection_for_select(@airports, 'id', 'name') %>
-      <%= label_tag :from_airport_id, "FROM Airport" %>
+
+      <%= label_tag :from_airport_id, "From: " %>
       <%= select_tag :all_val, options %>
 
-      <%= label_tag :to_airport_id, "TO Airport" %>
-      <%= select_tag :all_val, options %>
+      <%= label_tag :to_airport_id, "To " %>
+      <%= select_tag :all_val, options %><br>
 
       <%= label_tag :date , "Date of Flight" %>
       <%= select_tag "event_date",
-      options_from_collection_for_select(@flights, 'date', :event_date_formatted) %>
+      options_from_collection_for_select(@flights, 'date', :event_date_formatted) %><br>
 
       <%= label_tag :quantity, "No. of passengers" %>
-      <%= select_tag :quantity, options_for_select([[1,1], [2,2], [3,3], [4,4]]) %>
+      <%= select_tag :quantity, options_for_select([[1,1], [2,2], [3,3], [4,4]]) %><br>
 
-      <%= submit_tag "Search" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
   </div>
