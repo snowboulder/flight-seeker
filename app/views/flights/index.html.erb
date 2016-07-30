@@ -4,22 +4,21 @@
   <div class="col-md-6 col-md-offset-3">
     <h3>Fill in the details to seek the best flight!</h3>
 
-    <%= form_for(@flight, url: root_path, method: "get") do |f| %>
+    <%= form_tag(root_path, method: :get) do %>
 
-      <% options = options_from_collection_for_select(@airport, 'id', 'name') %>
-      <%= f.label :from_airport_id, "FROM Airport" %>
-      <%= f.select :all_val, options %>
+      <% options = options_from_collection_for_select(@airports, 'id', 'name') %>
+      <%= label_tag :from_airport_id, "FROM Airport" %>
+      <%= select_tag :all_val, options %>
 
 
-      <%= f.label :to_airport_id, "TO Airport" %>
-      <%= f.select :all_val, options %>
+      <%= label_tag :to_airport_id, "TO Airport" %>
+      <%= select_tag :all_val, options %>
 
-      <%= f.label :date , "Date of Flight" %>
+      <%= label_tag :date , "Date of Flight" %>
       <%= select_tag "event_date",
-      options_from_collection_for_select(UgradRsvp.get_event_dates,
-                                         'event_date', :event_date_formatted) %>
+      options_from_collection_for_select(@flights, 'date', :event_date_formatted) %>
 
-      <%= f.submit "Search" %>
+      <%= submit_tag "Search" %>
     <% end %>
 
   </div>
