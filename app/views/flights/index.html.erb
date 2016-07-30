@@ -10,13 +10,15 @@
       <%= label_tag :from_airport_id, "FROM Airport" %>
       <%= select_tag :all_val, options %>
 
-
       <%= label_tag :to_airport_id, "TO Airport" %>
       <%= select_tag :all_val, options %>
 
       <%= label_tag :date , "Date of Flight" %>
       <%= select_tag "event_date",
       options_from_collection_for_select(@flights, 'date', :event_date_formatted) %>
+
+      <%= label_tag :quantity, "No. of passengers" %>
+      <%= select_tag :quantity, options_for_select([[1,1], [2,2], [3,3], [4,4]]) %>
 
       <%= submit_tag "Search" %>
     <% end %>
