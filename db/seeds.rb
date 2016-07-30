@@ -9,18 +9,30 @@
 # rake db:setup
 
 # Auto populate Airport model with city names using Faker gem
-99.times do |n|
+10.times do |n|
   name  = Faker::Address.city
   Airport.create!(name:  name)
 end
 
+Flight.create!(from_airport_id: "1",
+               to_airport_id: "2",
+               duration: "40235",
+               date: "2016-08-01",
+               capacity: "170")
+
+ Flight.create!(from_airport_id: "1",
+                to_airport_id: "2",
+                duration: "50999",
+                date: "2016-08-01",
+                capacity: "151")
+
 # Auto populate Flight model using Faker gem
-99.times do |f|
-  from_airport_id = "#{f+1}"
-  to_airport_id = "#{f+2}"
+50.times do |f|
+  from_airport_id = Faker::Number.between(1,10)
+  to_airport_id = Faker::Number.between(1,10)
   duration = "#{(f+1)*10000}"
-  date = Faker::Date.forward(f+11)
-  capacity = "#{f+150}"
+  date = Faker::Date.forward(f)
+  capacity = Faker::Number.between(150, 200)
   Flight.create!(from_airport_id: from_airport_id,
                  to_airport_id: to_airport_id,
                  duration: duration,
