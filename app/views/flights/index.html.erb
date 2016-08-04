@@ -36,18 +36,20 @@
 
       <table>
         <tr>
-          <th>Flight ID</th>
-          <th>From Airport</th>
-          <th>To Airport</th>
+          <th>Flight ID | </th>
+          <th>From Airport | </th>
+          <th>To Airport | </th>
+          <th>Duration | </th>
           <th>Select flight</th>
         </tr>
 
         <% @results.each do |r| %>
           <tr>
-            <h3><%= r.id %></h3>
-            <h3><%= r.from_airport %></h3>
-            <h3><%= r.to_airport %></h3>
-            <h3><%= radio_button_tag r.id, r.id %></h3>
+            <td><%= r.id %></td>
+            <td><%= r.from_airport.name %></td>
+            <td><%= r.to_airport.name %></td>
+            <td><%= "#{r.duration}" %></td>
+            <td><%= radio_button_tag 'r.id', r.id %></td>
           </tr>
         <% end %>
       </table>
