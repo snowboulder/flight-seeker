@@ -33,26 +33,30 @@
     <% if @results.empty? %>
       <p>None!</p>
     <% else %>
-
-      <table>
-        <tr>
-          <th>Flight ID | </th>
-          <th>From Airport | </th>
-          <th>To Airport | </th>
-          <th>Duration | </th>
-          <th>Select flight</th>
-        </tr>
-
-        <% @results.each do |r| %>
+      <%= form_tag(new_booking_path, method: :get) do %>
+        <%= hidden_field_tag :quantity, params[:quantity] %>
+        <table>
           <tr>
-            <td><%= r.id %></td>
-            <td><%= r.from_airport.name %></td>
-            <td><%= r.to_airport.name %></td>
-            <td><%= "#{r.duration}" %></td>
-            <td><%= radio_button_tag 'r.id', r.id %></td>
+            <th>Flight ID | </th>
+            <th>From Airport | </th>
+            <th>To Airport | </th>
+            <th>Duration | </th>
+            <th>Select flight</th>
           </tr>
-        <% end %>
-      </table>
+
+          <% @results.each do |r| %>
+            <tr>
+              <td><%= r.id %></td>
+              <td><%= r.from_airport.name %></td>
+              <td><%= r.to_airport.name %></td>
+              <td><%= "#{r.duration}" %></td>
+              <td><%= radio_button_tag 'r.id', r.id %></td>
+            </tr>
+          <% end %>
+        </table>
+        <br>
+        <%= submit_tag "Select flight", class: "btn btn-primary" %>
+      <% end %>
     <% end %>
 
 
